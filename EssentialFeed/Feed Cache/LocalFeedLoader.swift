@@ -26,15 +26,21 @@ public final class LocalFeedLoader {
     }
     
     public func load(completion: @escaping (LoadResult) -> Void) {
-        store.retrieve { [unowned self] result in
+        store.retrieve { [weak self] result in
+            guard let self = self else { return }
+            
             switch result {
             case let .failure(error):
+                self.store.deleteCachedFeed { _ in }
                 completion(.failure(error))
                 
             case let .found(feed, timestamp) where self.validate(timestamp):
                 completion(.success(feed.toModels()))
+            case .found:
+                self.store.deleteCachedFeed { _ in }
+                completion(.success([]))
                 
-            case .found, .empty:
+            case .empty:
                 completion(.success([]))
             }
         }
