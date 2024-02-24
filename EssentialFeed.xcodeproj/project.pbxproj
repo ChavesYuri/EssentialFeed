@@ -123,7 +123,7 @@
 		1A86E6DA2B72F50C00DA35ED /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		1A86E6E02B72F5B500DA35ED /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A86E6E22B72F5B500DA35ED /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
-		1A86E6EB2B72F63E00DA35ED /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CI.xctestplan; path = EssentialFeed/CI.xctestplan; sourceTree = "<group>"; };
+		1A86E6EB2B72F63E00DA35ED /* CI_iOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CI_iOS.xctestplan; path = EssentialFeed/CI_iOS.xctestplan; sourceTree = "<group>"; };
 		1A86E6EF2B73A15000DA35ED /* CacheFeedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheFeedUseCaseTests.swift; sourceTree = "<group>"; };
 		1A86E6F22B73A38000DA35ED /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		1A86E6F42B73A3C000DA35ED /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
@@ -160,6 +160,7 @@
 		1AFB92F52B8A92A30034DF5D /* FeedViewController+TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewController+TestHelpers.swift"; sourceTree = "<group>"; };
 		1AFB92F72B8A92CA0034DF5D /* FeedViewControllerTests+Assertions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+Assertions.swift"; sourceTree = "<group>"; };
 		1AFB92F92B8A92EE0034DF5D /* FeedViewControllerTests+LoaderSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedViewControllerTests+LoaderSpy.swift"; sourceTree = "<group>"; };
+		1AFB92FB2B8A94E40034DF5D /* CI_macOS.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = CI_macOS.xctestplan; path = ../CI_macOS.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +231,8 @@
 				1AD296702B88F3C90058F42B /* EssentialFeediOS.xctestplan */,
 				1AD2962C2B86CE710058F42B /* EssentialFeedCacheIntegrationTests.xctestplan */,
 				1A86E6FA2B73A9FE00DA35ED /* EssentialFeedAPIEndToEndTests.xctestplan */,
-				1A86E6EB2B72F63E00DA35ED /* CI.xctestplan */,
+				1A86E6EB2B72F63E00DA35ED /* CI_iOS.xctestplan */,
+				1AFB92FB2B8A94E40034DF5D /* CI_macOS.xctestplan */,
 				1A86E6A42B72F35800DA35ED /* EssentialFeed */,
 				1A86E6AE2B72F35800DA35ED /* EssentialFeedTests */,
 				1A86E6E12B72F5B500DA35ED /* EssentialFeedAPIEndToEndTests */,
@@ -1242,6 +1244,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yuri.com.EssentialFeediOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1263,6 +1266,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = yuri.com.EssentialFeediOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos macosx";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
