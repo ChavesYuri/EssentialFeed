@@ -1,4 +1,5 @@
 import UIKit
+import EssentialFeed
 
 final class MVVMFeedImageCellController: FeedImageView {
     func display(_ model: FeedImageViewModel<UIImage>) {}
