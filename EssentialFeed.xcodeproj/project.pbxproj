@@ -565,9 +565,9 @@
 			children = (
 				1AD295E42B8401640058F42B /* ManagedFeedImage.swift */,
 				1AD295E22B8401520058F42B /* ManagedCache.swift */,
-				1AD295DD2B8400A90058F42B /* CoreDataFeedStore.swift */,
 				1AD295DF2B8400E70058F42B /* CoreDataHelpers.swift */,
 				1AD295ED2B8409120058F42B /* FeedStore.xcdatamodeld */,
+				1AD295DD2B8400A90058F42B /* CoreDataFeedStore.swift */,
 				1A7969D12B9747B700557778 /* CoreDataFeedStore+FeedImageDataLoader.swift */,
 				1A7969D32B9747D300557778 /* CoreDataFeedStore+FeedStore.swift */,
 			);
