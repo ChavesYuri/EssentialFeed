@@ -6,13 +6,15 @@ public final class ErrorView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = nil
         label.textColor = .white
-        label.numberOfLines = 1
+        label.numberOfLines = 0
+        label.textAlignment = .center
         
         return label
     }()
     
     init() {
         super.init(frame: .zero)
+        alpha = 0
         setupView()
     }
     
