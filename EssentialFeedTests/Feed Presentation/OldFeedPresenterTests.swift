@@ -1,10 +1,10 @@
 import XCTest
 import EssentialFeed
 
-class FeedPresenterTests: XCTestCase {
+class OldFeedPresenterTests: XCTestCase {
 
     func test_title_isLocalized() {
-        XCTAssertEqual(FeedPresenter.title, localized("FEED_VIEW_TITLE"))
+        XCTAssertEqual(OldFeedPresenter.title, localized("FEED_VIEW_TITLE"))
     }
 
     func test_init_doesNotSendMessagesToView() {
@@ -49,9 +49,9 @@ class FeedPresenterTests: XCTestCase {
 
     // MARK: - Helpers
 
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: FeedPresenter, view: ViewSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: OldFeedPresenter, view: ViewSpy) {
         let view = ViewSpy()
-        let sut = FeedPresenter(feedView: view, loadingView: view, errorView: view)
+        let sut = OldFeedPresenter(feedView: view, loadingView: view, errorView: view)
         trackForMemoryLeaks(view, file: file, line: line)
         trackForMemoryLeaks(sut, file: file, line: line)
         return (sut, view)
@@ -59,7 +59,7 @@ class FeedPresenterTests: XCTestCase {
 
     private func localized(_ key: String, file: StaticString = #file, line: UInt = #line) -> String {
         let table = "Feed"
-        let bundle = Bundle(for: FeedPresenter.self)
+        let bundle = Bundle(for: OldFeedPresenter.self)
         let value = bundle.localizedString(forKey: key, value: nil, table: table)
         if value == key {
             XCTFail("Missing localized string for key: \(key) in table: \(table)", file: file, line: line)
