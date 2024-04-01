@@ -6,7 +6,7 @@ public final class ErrorView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = nil
         label.textColor = .white
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.textAlignment = .center
         
         return label
@@ -28,10 +28,10 @@ public final class ErrorView: UIView {
         backgroundColor = .red
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 4),
-            label.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 4),
-            label.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -4),
-            label.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -4)
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 4),
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 4),
+            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -4),
+            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4)
         ])
     }
     

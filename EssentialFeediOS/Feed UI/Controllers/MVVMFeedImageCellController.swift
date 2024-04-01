@@ -2,7 +2,7 @@ import UIKit
 import EssentialFeed
 
 final class MVVMFeedImageCellController: FeedImageView {
-    func display(_ model: FeedImageViewModel<UIImage>) {}
+    func display(_ model: OldFeedImageViewModel<UIImage>) {}
     
     private let viewModel: MVVMFeedImageViewModel<UIImage>
 
