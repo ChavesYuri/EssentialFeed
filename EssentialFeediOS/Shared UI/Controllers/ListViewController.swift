@@ -14,8 +14,18 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableHeaderView = errorView
+        configureTableView()
         refresh()
+    }
+    
+    private func configureTableView() {
+        tableView.tableHeaderView = errorView.makeContainer()
+        
+        errorView.onHide = { [weak self] in
+            self?.tableView.beginUpdates()
+            self?.tableView.sizeTableHeaderToFit()
+            self?.tableView.endUpdates()
+        }
     }
     
     public override func viewDidLayoutSubviews() {
