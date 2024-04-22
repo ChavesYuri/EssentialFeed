@@ -1,7 +1,9 @@
 import UIKit
 import EssentialFeed
 
-public class ImageCommentCellController: CellController {
+public class ImageCommentCellController: NSObject, CellController {
+    public func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {}
+    
     public func view(in tableView: UITableView) -> UITableViewCell {
         let cell: ImageCommentCell = tableView.dequeueReusableCell()
         cell.messageLabel.text = model.message
@@ -9,10 +11,6 @@ public class ImageCommentCellController: CellController {
         cell.dateLabel.text = model.date
         return cell
     }
-    
-    public func preload() {}
-    
-    public func cancelLoad() {}
     
     private let model: ImageCommentViewModel
 
