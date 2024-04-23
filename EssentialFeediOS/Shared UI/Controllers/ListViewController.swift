@@ -6,8 +6,6 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     
     public var onRefresh: (() -> Void)?
     
-    private var loadingControllers = [IndexPath: CellController]()
-    
     private lazy var dataSource: UITableViewDiffableDataSource<Int, CellController> = {
         .init(tableView: tableView) { (tableView, indexPath, controller) -> UITableViewCell? in
             return controller.dataSource.tableView(tableView, cellForRowAt: indexPath)
@@ -22,6 +20,7 @@ public final class ListViewController: UITableViewController, UITableViewDataSou
     }
     
     private func configureTableView() {
+        dataSource.defaultRowAnimation = .fade
         tableView.dataSource = dataSource
         tableView.tableHeaderView = errorView.makeContainer()
         
