@@ -31,6 +31,16 @@ class FeedSnapshotTests: XCTestCase {
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_LOAD_MORE_INDICATOR_light")
         assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_LOAD_MORE_INDICATOR_dark")
     }
+    
+    func test_feedWithLoadMoreError() {
+        let sut = makeSUT()
+        
+        sut.display(feedWithLoadMoreError())
+        
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light)), named: "FEED_WITH_LOAD_MORE_ERROR_light")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .dark)), named: "FEED_WITH_LOAD_MORE_ERROR_dark")
+        assert(snapshot: sut.snapshot(for: .iPhone8(style: .light, contentSize: .extraExtraExtraLarge)), named: "FEED_WITH_LOAD_MORE_ERROR_light_extraExtraExtraLarge")
+    }
 
     // MARK: - Helpers
 
@@ -44,16 +54,26 @@ class FeedSnapshotTests: XCTestCase {
         return controller
     }
     
+    private func feedWithLoadMoreError() -> [CellController] {
+        let loadMoreController = LoadMoreCellController()
+        loadMoreController.display(ResourceErrorViewModel(message: "this is a multiline\n error message"))
+        return feedWith(loadMore: loadMoreController)
+    }
+    
     private func feedWithLoadMoreIndicator() -> [CellController] {
+        let loadMoreController = LoadMoreCellController()
+        loadMoreController.display(.init(isLoading: true))
+        return feedWith(loadMore: loadMoreController)
+    }
+    
+    private func feedWith(loadMore: LoadMoreCellController) -> [CellController] {
         let stub = feedWithContent().last!
         let feedImageController = FeedImageCellController(viewModel: stub.viewModel, delegate: stub, selection: {})
         stub.controller = feedImageController
         
-        let loadMoreController = LoadMoreCellController()
-        loadMoreController.display(.init(isLoading: true))
         return [
             CellController(id: UUID(), feedImageController),
-            CellController(id: UUID(), loadMoreController)
+            CellController(id: UUID(), loadMore)
         ]
     }
 
